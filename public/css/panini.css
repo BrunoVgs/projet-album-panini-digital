@@ -1,0 +1,41 @@
+body{
+    background: rgb(255, 255, 255);
+}
+
+#side_nav{
+background: #000;
+min-width: 250px;
+}
+
+.content{
+    min-height: 100vh;
+    width: 100%;
+}
+hr.h-color{
+    background: #eee;
+} 
+
+.content-container {
+    margin: 20px;
+}
+
+
+.navbar.navbar-expand-lg.bg-body-tertiary {
+    margin-right: 20px;
+    
+}
+  
+
+.sidebar li.active{
+    background: #eee;
+    border-radius: 8px;
+}
+
+.sidebar li.active a {
+    color: #000;
+}
+
+.sidebar li a{
+    color: #fff;
+}
+

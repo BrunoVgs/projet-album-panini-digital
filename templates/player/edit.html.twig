@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le joueur{% endblock %}
+
+{% block content %}
+    <div class="content-container">
+        <h1>Modifier le joueur</h1>
+        <form action="{{ path('app_back_player_update', { 'id': player.id }) }}" method="post">
+            <div class="mb-3">
+                <label for="firstname" class="form-label">Prénom</label>
+                <input type="text" class="form-control" id="firstname" name="firstname" value="{{ player.firstname }}">
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="lastname" name="lastname" value="{{ player.lastname }}">
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">Âge</label>
+                <input type="number" class="form-control" id="age" name="age" value="{{ player.age }}">
+            </div>
+            <div class="mb-3">
+                <label for="position" class="form-label">Poste</label>
+                <input type="text" class="form-control" id="position" name="position" value="{{ player.position }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <a class="btn btn-secondary" href="{{ path('app_back_player_index') }}">Annuler</a>
+        </form>
+    </div>
+{% endblock %}

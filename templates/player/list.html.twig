@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Joueurs{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="content-container">
+        <h1>Liste des joueurs</h1>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Âge</th>
+                        <th>Poste</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for player in players %}
+                        <tr>
+                            <td>{{ player.firstname }}</td>
+                            <td>{{ player.lastname }}</td>
+                            <td>{{ player.age }}</td>
+                            <td>{{ player.position }}</td>
+                            <td>
+                                <a href="{{ path('app_back_player_edit', { 'id': player.id }) }}" class="btn btn-primary">Modifier</a>
+                                <form action="{{ path('app_back_player_delete', { 'id': player.id }) }}" method="post" class="d-inline">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce joueur ?')">Supprimer</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a class="btn btn-primary" id="voirToutBtn" href="{{ path('app_back_player_index') }}">Voir tout</a>
+    </div>
+{% endblock %}
